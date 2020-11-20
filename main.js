@@ -19,7 +19,7 @@ multiplier2 = (multiplier2.add(1))
 function upgrade1() {
     multiplier1 = multiplier1.times(multiplier2);
 	multiplier2 = multiplier2.times(multiplier3);
-	IP = number.log(1e90);
+	IP = Math.floor(number.log(1e90));
     document.getElementById('number').innerHTML = `Number: ${notate(number)}`;
     document.getElementById('multiplier').innerHTML = "Multiplier per second: " + notate2((Decimal.pow(multiplier1, 10))) + "x";
 	document.getElementById('IP').innerHTML = "Prestige to get " + (IP) + " IP";
@@ -28,8 +28,9 @@ function upgrade1() {
 function EarnIP() {
 		number = new Decimal(1);
 		multiplier1 = new Decimal(1);
-		multiplier2 = new Decimal(0.00025).times(IP).add(1);
+		multiplier2 = (new Decimal(0.00025).times(IP).add(1));
 		multiplier3 = new Decimal(0.99999995).sub(0.0000005);
+		document.getElementById('IPamount').innerHTML = "You have " + IP + " IP"
 }
 
 	
