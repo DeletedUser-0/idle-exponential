@@ -3,8 +3,7 @@ var multiplier1 = new Decimal(1);
 var TotalAmount = new Decimal(1);
 var multiplier2 = new Decimal(0.00025);
 var multiplier3 = new Decimal(0.99999995);
-var IP = new Decimal(0);
-var IPstat = new Decimal(0);
+var IP = new Decimal(2);
 
 
 function multiply() {
@@ -27,12 +26,10 @@ function upgrade1() {
 }
 
 function EarnIP() {
-	IP = number.log(1e90);
-	IPstat = IPstat.add(1);
-	number = new Decimal(1);
-	multiplier1 = new Decimal(1);
-	multiplier2 = new Decimal(0.00025).times(IP).times(IPstat).add(1);
-	multiplier3 = new Decimal(0.99999995).sub(0.00000002).times(IPstat);
+		number = new Decimal(1);
+		multiplier1 = new Decimal(1);
+		multiplier2 = new Decimal(0.00025).times(IP).add(1);
+		multiplier3 = new Decimal(0.99999995).sub(0.0000005);
 }
 
 	
