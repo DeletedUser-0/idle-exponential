@@ -36,7 +36,7 @@ function EarnIP() {
 	number = new Decimal(1);
 	multiplier1 = new Decimal(1);
 	multiplier2 = (new Decimal(0.00025).times(OldIP).add(1));
-	multiplier3 = new Decimal(1).sub(multiplier2.dividedBy(1000000));
+	multiplier3 = new Decimal(1).sub(multiplier2.dividedBy(100000000));
 	document.getElementById('IPamount').innerHTML = "You have " + OldIP.sub(2) + " Infinity Points"
 	document.getElementById('IP').innerHTML = "Prestige and you'll have " + Math.floor(number.log(1e50)) + " Infinity Points";
 }
