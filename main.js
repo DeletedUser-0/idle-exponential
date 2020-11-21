@@ -13,7 +13,7 @@ function multiply() {
     TotalAmount = TotalAmount.times(multiplier1);
     document.getElementById('number').innerHTML = "Number: " + notate(number);
     document.getElementById('TotalNumber').innerHTML = "Total Received: " + notate(TotalAmount);
-    document.getElementById('multiplier').innerHTML = "Multiplier per second: " + notate2((Decimal.pow(multiplier1, 25))) + "x";
+    document.getElementById('multiplier').innerHTML = "(x" + notate2((Decimal.pow(multiplier1, 25))) + "/s)";
 }
 
 // This had to be added or the game would be unbalanced.
@@ -24,7 +24,7 @@ function upgrade1() {
     multiplier1 = multiplier1.times(multiplier2);
 	multiplier2 = multiplier2.times(multiplier3);
     document.getElementById('number').innerHTML = `Number: ${notate(number)}`;
-    document.getElementById('multiplier').innerHTML = "Multiplier per second: " + notate2((Decimal.pow(multiplier1, 25))) + "x";
+    document.getElementById('multiplier').innerHTML = "(x" + notate2((Decimal.pow(multiplier1, 25))) + "/s)";
 	document.getElementById('IPamount').innerHTML = "You have " + OldIP + " Infinity Points";
 	document.getElementById('IP').innerHTML = "Earn " + Math.floor(number.log(1e50)) + " Infinity Points";
 }
@@ -37,8 +37,8 @@ function EarnIP() {
 	multiplier1 = new Decimal(1);
 	multiplier2 = (new Decimal(0.00025).times(OldIP).add(1));
 	multiplier3 = new Decimal(1).sub(multiplier2.dividedBy(100000000));
-	document.getElementById('IPamount').innerHTML = "You have " + OldIP.sub(2) + " Infinity Points"
-	document.getElementById('IP').innerHTML = "Prestige and you'll have " + Math.floor(number.log(1e50)) + " Infinity Points";
+	document.getElementById('IPamount').innerHTML = "You have " + notate(OldIP.sub(2)) + " Infinity Points"
+	document.getElementById('IP').innerHTML = "Prestige and you'll have " + notate(Math.floor(number.log(1e50))) + " Infinity Points";
 }
 	
 // This notates both values in HTML.	
