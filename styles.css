@@ -1,0 +1,10 @@
+p.number {
+	font: small-caps bold 30px Arial, serif;
+	text-align: center;
+}
+
+p.multiplier {
+	font-family: Arial;
+	font-size: 24px;
+	text-align: center;
+}
