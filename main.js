@@ -44,14 +44,14 @@ function EarnIP() {
 // This notates both values in HTML.	
 function notate(n) {
     var m = n.mantissa;
-    var e = n.exponent;
+    var e = n.exponent.toLocaleString("pt-BR");
     if (e < 3) return (m * Math.pow(10, e)).toPrecision(3);
     return `${m.toPrecision(3)}e${e}`;
 }
 
 function notate2(n) {
     var m = n.mantissa;
-    var e = n.exponent;
+    var e = n.exponent.toLocaleString("pt-BR");
     if (e < 3) return (m * Math.pow(10, e)).toPrecision(3);
     return `${m.toPrecision(2)}e${e}`;
 }
