@@ -33,27 +33,26 @@ function upgrade1() {
 function EarnIP() {
 	IP = Math.floor(number.log(1e50));
 	OldIP = OldIP.add(IP);
-	number = new Decimal(1);
 	multiplier1 = new Decimal(1);
 	multiplier2 = (new Decimal(0.00025).times(OldIP).add(1));
 	multiplier3 = new Decimal(1).sub(multiplier2.dividedBy(100000000));
 	document.getElementById('IPamount').innerHTML = "You have " + notate(OldIP.sub(2)) + " Infinity Points"
-	document.getElementById('IP').innerHTML = "Prestige and you'll have " + notate(Math.floor(number.log(1e50))) + " Infinity Points";
+	document.getElementById('IP').innerHTML = "Earn " + Math.floor(number.log(1e50)) + " Infinity Points";
 }
 	
 // This notates both values in HTML.	
 function notate(n) {
     var m = n.mantissa;
-    var e = n.exponent.toLocaleString("pt-BR");
+    var e = n.exponent;
     if (e < 3) return (m * Math.pow(10, e)).toPrecision(3);
-    return `${m.toPrecision(3)}e${e}`;
+    return `${m.toPrecision(3)}e${e.toLocaleString("pt-BR")}`;
 }
 
 function notate2(n) {
     var m = n.mantissa;
-    var e = n.exponent.toLocaleString("pt-BR");
-    if (e < 3) return (m * Math.pow(10, e)).toPrecision(3);
-    return `${m.toPrecision(2)}e${e}`;
+    var e = n.exponent;
+    if (e < 4) return (m * Math.pow(10, e.toLocaleString("pt-BR"))).toPrecision(3);
+    return `${m.toPrecision(2)}e${e.toLocaleString("pt-BR")}`;
 }
 
 // Automation at the start of the game!
