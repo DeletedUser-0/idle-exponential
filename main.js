@@ -31,14 +31,14 @@ function upgrade1() {
 
 // Click to earn more Infinity Points.
 function EarnIP() {
-	IP = Math.floor(number.log(1e100));
+	IP = Math.floor(number.log(1e50));
 	OldIP = OldIP.add(IP);
 	number = new Decimal(1);
 	multiplier1 = new Decimal(1);
 	multiplier2 = (new Decimal(0.00025).times(OldIP).add(1));
 	multiplier3 = new Decimal(1).sub(multiplier2.dividedBy(1000000));
 	document.getElementById('IPamount').innerHTML = "You have " + OldIP.sub(2) + " Infinity Points"
-	document.getElementById('IP').innerHTML = "Prestige and you'll have " + Math.floor(number.log(1e100)) + " Infinity Points";
+	document.getElementById('IP').innerHTML = "Prestige and you'll have " + Math.floor(number.log(1e50)) + " Infinity Points";
 }
 	
 // This notates both values in HTML.	
