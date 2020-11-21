@@ -2,11 +2,10 @@
 var number = new Decimal(1);
 var multiplier1 = new Decimal(1);
 var TotalAmount = new Decimal(1);
-var multiplier2 = new Decimal(0.00025);
-var multiplier3 = new Decimal(1);
+var multiplier2 = new Decimal(0.000075);
+var multiplier3 = new Decimal(0.9999999875);
 var IP = new Decimal(0);
 var OldIP = new Decimal(0);
-var multiplierEffect1 = new Decimal(1);
 
 // Multiplies the number every tick.
 function multiply() {
@@ -27,19 +26,17 @@ function upgrade1() {
     document.getElementById('number').innerHTML = `Number: ${notate(number)}`;
     document.getElementById('multiplier').innerHTML = "Multiplier per second: " + notate2((Decimal.pow(multiplier1, 25))) + "x";
 	document.getElementById('IPamount').innerHTML = "You have " + OldIP + " Infinity Points";
-	document.getElementById('IP').innerHTML = "Earn " + Math.floor(number.log(1e25)) + " Infinity Points";
+	document.getElementById('IP').innerHTML = "Earn " + Math.floor(number.log(1e50)) + " Infinity Points";
 }
 
 // Click to earn more Infinity Points.
 function EarnIP() {
-	IP = Math.floor(number.log(1e100));
+	IP = Math.floor(number.log(1e50));
 	OldIP = OldIP.add(IP);
-	multiplierEffect1 = OldIP.log(1.25);
 	number = new Decimal(1);
 	multiplier1 = new Decimal(1);
-	var multiplier2 = new Decimal(0.00025);
-	multiplier2 = multiplier2.times(multiplierEffect1).add(1);
-	multiplier3 = new Decimal(1).sub(0.0000001);
+	multiplier2 = (new Decimal(0.00025).times(OldIP).add(1));
+	multiplier3 = new Decimal(1).sub(multiplier2.dividedBy(1000000));
 	document.getElementById('IPamount').innerHTML = "You have " + OldIP.sub(2) + " Infinity Points"
 	document.getElementById('IP').innerHTML = "Prestige and you'll have " + Math.floor(number.log(1e25)) + " Infinity Points";
 }
