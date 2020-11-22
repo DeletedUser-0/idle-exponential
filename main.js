@@ -36,14 +36,14 @@ function EarnIP() {
 }
 
 function IncreaseMultiplier1() {
-	if (Upgrade1Cost >= Number) {
-		BaseEffect1.times(1.04);
-		Upgrade1Cost.pow(1.35);
-		Upgrade1Level.add(1);
+	if (number >= Upgrade1Cost) {
+		BaseEffect1 = BaseEffect1.times(1.04);
+		Upgrade1Cost = Upgrade1Cost.pow(1.35);
+		Upgrade1Level = Upgrade1Level.add(1);
 		document.getElementById('number').innerHTML = "Number: " + notate(number);
 		document.getElementById('multiplier').innerHTML = "(x" + notate3((Decimal.pow(multiplier1, 20))) + "/s)";
-		document.getElementById('Upgrade1').innerHTML = "Increase Multiplier per second. <br> Cost: " + notate(Upgrade1Cost) + "<br> Level: " + notate4(Upgrade1Level); 
-	};
+		document.getElementById('Upgrade1').innerHTML = "Increase Multiplier per second. <br> Cost: " + notate(Upgrade1Cost) + "<br> Level: " + notate4(Upgrade1Level);
+	}
 };
 	
 // This notates both values in HTML.	
