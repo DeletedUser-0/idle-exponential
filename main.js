@@ -53,7 +53,7 @@ function notate2(n) {
 function notate3(n) {
     var m = n.mantissa;
     var e = n.exponent;
-    if (e < 3) return (m * Math.pow(10, e.toLocaleString("pt-BR"))).toPrecision(6);
+    if (e < 3) return (m * Math.pow(10, e.toLocaleString("pt-BR"))).toPrecision(3);
     return `${m.toPrecision(2)}e${e.toLocaleString("pt-BR")}`;
 }
 
