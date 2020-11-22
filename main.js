@@ -9,6 +9,10 @@ var Upgrade1Cost = new Decimal(1e3);
 var Upgrade1Level = new Decimal(0);
 var BaseEffect1 = new Decimal(0.0125);
 var CostEffect1 = new Decimal(3);
+var IPmultiplier = new Decimal(1.003);
+var Upgrade2Cost = new Decimal(1e1000);
+var Upgrade2Level = new Decimal(1);
+var CostEffect2 = new Decimal(1.5);
 
 // Multiplies the number every tick.
 function multiply() {
@@ -29,7 +33,7 @@ function upgrade1() {
 
 // Click to earn more Infinity Points.
 function EarnIP() {
-	IP = IP.times(1.003);
+	IP = IP.times(IPmultiplier);
 	OldIP = IP;
 	MultiplierEffect1 = OldIP.pow(BaseEffect1);
 	multiplier2 = (new Decimal(0.00002).times(MultiplierEffect1));
@@ -37,7 +41,7 @@ function EarnIP() {
 }
 
 function IncreaseMultiplier1() {
-	if (number.mantissa >= Upgrade1Cost.mantissa && number.exponent >= Upgrade1Cost.exponent ) {
+	if (number.mantissa >= Upgrade1Cost.mantissa && number.exponent >= Upgrade1Cost.exponent) {
 		BaseEffect1 = BaseEffect1.times(1.075);
 		CostEffect1 = CostEffect1.times(1.35);
 		Upgrade1Cost = new Decimal(10).pow(Math.floor(CostEffect1));
@@ -45,8 +49,21 @@ function IncreaseMultiplier1() {
 		document.getElementById('number').innerHTML = "Number: " + notate(number);
 		document.getElementById('multiplier').innerHTML = "(x" + notate3((multiplier1.pow(20))) + "/s)";
 		document.getElementById('Upgrade1').innerHTML = "Increase Multiplier per second. <br> Cost: " + notate(Upgrade1Cost) + "<br> Level: " + notate4(Upgrade1Level);
-	}
+	};
 };
+
+function IncreaseIP1() {
+	if (number.mantissa >= Upgrade1Cost.mantissa && number.exponent >= Upgrade2Cost.exponent) {
+		IPmultiplier = IPmultiplier.times(1.0001);
+		CostEffect2 = CostEffect2.times(1.5);
+		Upgrade2Cost = new Decimal(10).pow(Math.floor(CostEffect2));
+		Upgrade2Level = Upgrade2Level.add(1);
+		document.getElementById('number').innerHTML = "Number: " + notate(number);
+		document.getElementById('multiplier').innerHTML = "(x" + notate3((multiplier1.pow(20))) + "/s)";
+		document.getElementById('Upgrade2').innerHTML = "Increase IP multiplier per tick. <br> Cost: " + notate(Upgrade2Cost) + "<br> Level: " + notate4(Upgrade2Level);
+	};
+};
+		
 	
 // This notates both values in HTML.	
 function notate(n) {
@@ -54,7 +71,7 @@ function notate(n) {
     var e = n.exponent;
     if (e < 3) return (m * Math.pow(10, e)).toPrecision(3);
     return `${m.toPrecision(3)}e${e.toLocaleString("pt-BR")}`;
-}
+};
 
 function notate2(n) {
     var m = n.mantissa;
