@@ -28,9 +28,9 @@ function upgrade1() {
 
 // Click to earn more Infinity Points.
 function EarnIP() {
-	IP = IP.times(1.0015);
+	IP = IP.times(1.00175);
 	OldIP = IP;
-	MultiplierEffect1 = OldIP.pow(0.01);
+	MultiplierEffect1 = OldIP.pow(0.011);
 	multiplier2 = (new Decimal(0.000025).times(MultiplierEffect1));
 	document.getElementById('IPamount').innerHTML = "You have " + notate(OldIP) + " Infinity Points";
 }
