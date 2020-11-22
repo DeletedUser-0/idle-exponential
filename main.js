@@ -8,6 +8,7 @@ var MultiplierEffect1 = new Decimal(1);
 var Upgrade1Cost = new Decimal(1e6);
 var Upgrade1Level = new Decimal(0);
 var BaseEffect1 = new Decimal(0.0125);
+var CostEffect1 = new Decimal(6);
 
 // Multiplies the number every tick.
 function multiply() {
@@ -38,7 +39,8 @@ function EarnIP() {
 function IncreaseMultiplier1() {
 	if (number.mantissa >= Upgrade1Cost.mantissa && number.exponent >= Upgrade1Cost.exponent ) {
 		BaseEffect1 = BaseEffect1.times(1.04);
-		Upgrade1Cost = Upgrade1Cost.pow(1.35);
+		CostEffect1 = CostEffect1.times(1.35);
+		Upgrade1Cost = new Decimal(10).pow(CostEffect1);
 		Upgrade1Level = Upgrade1Level.add(1);
 		document.getElementById('number').innerHTML = "Number: " + notate(number);
 		document.getElementById('multiplier').innerHTML = "(x" + notate3((multiplier1.pow(20))) + "/s)";
