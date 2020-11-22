@@ -21,7 +21,7 @@ multiplier1 = multiplier1.add(1);
 
 // Multiplies the multiplier1 value, which that variable multiplies the main number value.
 function upgrade1() {
-    multiplier1 = MultiplierEffect1.divide(1.4).times(multiplier1.log(2)).add(1.0000001);
+    multiplier1 = MultiplierEffect1.divide(1.445).times(multiplier1.log(2)).add(1.0000001);
     document.getElementById('number').innerHTML = `Number: ${notate(number)}`;
     document.getElementById('multiplier').innerHTML = "(x" + notate3((multiplier1.pow(20))) + "/s)";
 	document.getElementById('IPamount').innerHTML = "You have " + notate(OldIP) + " Infinity Points";
@@ -38,7 +38,7 @@ function EarnIP() {
 
 function IncreaseMultiplier1() {
 	if (number.mantissa >= Upgrade1Cost.mantissa && number.exponent >= Upgrade1Cost.exponent ) {
-		BaseEffect1 = BaseEffect1.times(1.04);
+		BaseEffect1 = BaseEffect1.times(1.075);
 		CostEffect1 = CostEffect1.times(1.35);
 		Upgrade1Cost = new Decimal(10).pow(Math.floor(CostEffect1));
 		Upgrade1Level = Upgrade1Level.add(1);
@@ -66,14 +66,14 @@ function notate2(n) {
 function notate3(n) {
     var m = n.mantissa;
     var e = n.exponent;
-    if (e < 3) return (m * Math.pow(10, e)).toPrecision(3);
+    if (e < 3) return (m * Math.pow(10, e)).toPrecision(4);
     return `${m.toPrecision(3)}e${e.toLocaleString("pt-BR")}`;
 }
 
 function notate4(n) {
     var m = n.mantissa;
     var e = n.exponent;
-    if (e < 3) return (m * Math.pow(10, e)).toPrecision(1);
+    if (e < 3) return (m * Math.pow(10, e)).toPrecision(3);
     return `${m.toPrecision(3)}e${e.toLocaleString("pt-BR")}`;
 }
 // Automation at the start of the game!
