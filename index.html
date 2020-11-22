@@ -2,12 +2,25 @@
     <script src="break_infinity.js"></script>
     <script src="main.js"></script>
 	<link rel="stylesheet" href="styles.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Idle Exponential</title>
 </head>
 <body>
-    <p id="number" class="number">Number: 1.00</b>
+	<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Number')" id="default">Number</button>
+  <button class="tablinks" onclick="openCity(event, 'IP')">Infinity Points</button>
+	</div>
+	<p id="number" class="number">Number: 1.00</b>
 	<p id="multiplier" class="multiplier">(x1.01/s)</p>
 	<br>
-    <p id="TotalNumber">Total Received: 1.00</p>
 	<br>
-	<p id="IPamount">You have 2 Infinity Points</p>
+	<div id="Number" class="tabcontent">
+	<button onclick="IncreaseMultiplier1()" class="Upgrade1" id="Upgrade1">Increase Multiplier per second. <br> Cost: 1.00e6 <br> Level: 0</button>
+	</div>
+	<div id="IP" class="tabcontent">
+	<b id="IPamount" class="IPamount">You have 2 Infinity Points</b>
+	</div>
+	<script>
+	document.getElementById("default").click();
+	</script>
 </body>
