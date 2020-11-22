@@ -54,7 +54,7 @@ function notate3(n) {
     var m = n.mantissa;
     var e = n.exponent;
     if (e < 3) return (m * Math.pow(10, e.toLocaleString("pt-BR"))).toPrecision(3);
-    return `${m.toPrecision(2)}e${e.toLocaleString("pt-BR")}`;
+    return `${m.toPrecision(3)}e${e.toLocaleString("pt-BR")}`;
 }
 
 // Automation at the start of the game!
