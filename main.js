@@ -5,10 +5,10 @@ var multiplier2 = new Decimal(0.00000000000001);
 var IP = new Decimal(1);
 var OldIP = new Decimal(1);
 var MultiplierEffect1 = new Decimal(1);
-var Upgrade1Cost = new Decimal(1e6);
+var Upgrade1Cost = new Decimal(1e3);
 var Upgrade1Level = new Decimal(0);
 var BaseEffect1 = new Decimal(0.0125);
-var CostEffect1 = new Decimal(6);
+var CostEffect1 = new Decimal(3);
 
 // Multiplies the number every tick.
 function multiply() {
@@ -21,7 +21,7 @@ multiplier1 = multiplier1.add(1);
 
 // Multiplies the multiplier1 value, which that variable multiplies the main number value.
 function upgrade1() {
-    multiplier1 = MultiplierEffect1.divide(1.45).times(multiplier1.log(2)).add(1.0000001);
+    multiplier1 = MultiplierEffect1.divide(1.4).times(multiplier1.log(2)).add(1.0000001);
     document.getElementById('number').innerHTML = `Number: ${notate(number)}`;
     document.getElementById('multiplier').innerHTML = "(x" + notate3((multiplier1.pow(20))) + "/s)";
 	document.getElementById('IPamount').innerHTML = "You have " + notate(OldIP) + " Infinity Points";
@@ -39,8 +39,8 @@ function EarnIP() {
 function IncreaseMultiplier1() {
 	if (number.mantissa >= Upgrade1Cost.mantissa && number.exponent >= Upgrade1Cost.exponent ) {
 		BaseEffect1 = BaseEffect1.times(1.04);
-		CostEffect1 = Math.floor(CostEffect1.times(1.35));
-		Upgrade1Cost = new Decimal(10).pow(CostEffect1);
+		CostEffect1 = CostEffect1.times(1.35);
+		Upgrade1Cost = new Decimal(10).pow(Math.floor(CostEffect1));
 		Upgrade1Level = Upgrade1Level.add(1);
 		document.getElementById('number').innerHTML = "Number: " + notate(number);
 		document.getElementById('multiplier').innerHTML = "(x" + notate3((multiplier1.pow(20))) + "/s)";
