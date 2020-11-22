@@ -1,20 +1,24 @@
 p.number {
 	font: small-caps bold 30px Arial, serif;
 	text-align: center;
+        color: white;
 }
 
 p.multiplier {
 	font-family: Arial;
 	font-size: 24px;
 	text-align: center;
+        color: white;
 }
 	
 b.IPamount {
 	text-align: center;
 	font-size: 16px;
+        color: white;
 }
 
-body {font-family: Arial;}
+body {font-family: Arial;
+      color: white;}
 
 /* Style the tab */
 .tab {
