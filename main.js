@@ -39,7 +39,7 @@ function EarnIP() {
 function IncreaseMultiplier1() {
 	if (number.mantissa >= Upgrade1Cost.mantissa && number.exponent >= Upgrade1Cost.exponent ) {
 		BaseEffect1 = BaseEffect1.times(1.04);
-		CostEffect1 = CostEffect1.times(1.35);
+		CostEffect1 = Math.floor(CostEffect1.times(1.35));
 		Upgrade1Cost = new Decimal(10).pow(CostEffect1);
 		Upgrade1Level = Upgrade1Level.add(1);
 		document.getElementById('number').innerHTML = "Number: " + notate(number);
