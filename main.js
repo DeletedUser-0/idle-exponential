@@ -13,7 +13,7 @@ var BaseEffect1 = new Decimal(0.0125);
 function multiply() {
     number = number.times(multiplier1);
     document.getElementById('number').innerHTML = "Number: " + notate(number);
-    document.getElementById('multiplier').innerHTML = "(x" + notate3((Decimal.pow(multiplier1, 20))) + "/s)";
+    document.getElementById('multiplier').innerHTML = "(x" + notate3((multiplier1.pow(20))) + "/s)";
 }
 
 multiplier1 = multiplier1.add(1);
@@ -22,7 +22,7 @@ multiplier1 = multiplier1.add(1);
 function upgrade1() {
     multiplier1 = MultiplierEffect1.divide(1.45).times(multiplier1.log(2)).add(1.0000001);
     document.getElementById('number').innerHTML = `Number: ${notate(number)}`;
-    document.getElementById('multiplier').innerHTML = "(x" + notate3((Decimal.pow(multiplier1, 20))) + "/s)";
+    document.getElementById('multiplier').innerHTML = "(x" + notate3((multiplier1.pow(20))) + "/s)";
 	document.getElementById('IPamount').innerHTML = "You have " + notate(OldIP) + " Infinity Points";
 }
 
@@ -41,7 +41,7 @@ function IncreaseMultiplier1() {
 		Upgrade1Cost = Upgrade1Cost.pow(1.35);
 		Upgrade1Level = Upgrade1Level.add(1);
 		document.getElementById('number').innerHTML = "Number: " + notate(number);
-		document.getElementById('multiplier').innerHTML = "(x" + notate3((Decimal.pow(multiplier1, 20))) + "/s)";
+		document.getElementById('multiplier').innerHTML = "(x" + notate3((multiplier1.pow(20))) + "/s)";
 		document.getElementById('Upgrade1').innerHTML = "Increase Multiplier per second. <br> Cost: " + notate(Upgrade1Cost) + "<br> Level: " + notate4(Upgrade1Level);
 	}
 };
