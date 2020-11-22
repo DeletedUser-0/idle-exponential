@@ -36,7 +36,7 @@ function EarnIP() {
 }
 
 function IncreaseMultiplier1() {
-	if (number >= Upgrade1Cost) {
+	if (number.mantissa >= Upgrade1Cost.mantissa && number.exponent >= Upgrade1Cost.exponent ) {
 		BaseEffect1 = BaseEffect1.times(1.04);
 		Upgrade1Cost = Upgrade1Cost.pow(1.35);
 		Upgrade1Level = Upgrade1Level.add(1);
@@ -57,24 +57,23 @@ function notate(n) {
 function notate2(n) {
     var m = n.mantissa;
     var e = n.exponent;
-    if (e < 4) return (m * Math.pow(10, e.toLocaleString("pt-BR"))).toPrecision(3);
+    if (e < 4) return (m * Math.pow(10, e)).toPrecision(3);
     return `${m.toPrecision(2)}e${e.toLocaleString("pt-BR")}`;
 }
 
 function notate3(n) {
     var m = n.mantissa;
     var e = n.exponent;
-    if (e < 3) return (m * Math.pow(10, e.toLocaleString("pt-BR"))).toPrecision(3);
+    if (e < 3) return (m * Math.pow(10, e)).toPrecision(3);
     return `${m.toPrecision(3)}e${e.toLocaleString("pt-BR")}`;
 }
 
 function notate4(n) {
     var m = n.mantissa;
     var e = n.exponent;
-    if (e < 3) return (m * Math.pow(10, e.toLocaleString("pt-BR"))).toPrecision(1);
+    if (e < 3) return (m * Math.pow(10, e)).toPrecision(1);
     return `${m.toPrecision(3)}e${e.toLocaleString("pt-BR")}`;
 }
-		
 // Automation at the start of the game!
 
 var mainGameLoop = window.setInterval(function () {
