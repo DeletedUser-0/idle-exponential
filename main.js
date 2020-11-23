@@ -47,7 +47,7 @@ function IncreaseMultiplier1() {
 		Upgrade1Cost = new Decimal(10).pow(Math.floor(CostEffect1));
 		Upgrade1Level = Upgrade1Level.add(1);
 		document.getElementById('number').innerHTML = "Number: " + notate(number)  + " (x" + notate3((multiplier1.pow(40))) + "/s)";
-		document.getElementById('Upgrade1').innerHTML = "Increase Multiplier per second and increases IP gain by a fraction. <br> Cost: " + notate(Upgrade1Cost) + "<br> Level: " + Upgrade1Level;
+		document.getElementById('Upgrade1').innerHTML = "Increase Multiplier per second.<br>Increases IP gain by a fraction. <br> Cost: " + notate(Upgrade1Cost) + "<br> Level: " + Upgrade1Level;
 	};
 };
 
