@@ -1,33 +1,32 @@
 // Main game values.
 var number = new Decimal(1);
-var multiplier1 = new Decimal(1);
+var multiplier1 = new Decimal(1.05);
 var multiplier2 = new Decimal(0.00000000000001);
 var IP = new Decimal(1);
 var OldIP = new Decimal(1);
 var MultiplierEffect1 = new Decimal(1);
-var Upgrade1Cost = new Decimal(1e3);
+var Upgrade1Cost = new Decimal(1e6);
 var Upgrade1Level = new Decimal(0);
-var BaseEffect1 = new Decimal(0.0125);
-var CostEffect1 = new Decimal(3);
+var BaseEffect1 = new Decimal(0.00125);
+var CostEffect1 = new Decimal(6);
 var IPmultiplier = new Decimal(1.003);
 var Upgrade2Cost = new Decimal(1e1000);
 var Upgrade2Level = new Decimal(1);
 var CostEffect2 = new Decimal(1.5);
+var var1 = new Decimal(1.4);
 
 // Multiplies the number every tick.
 function multiply() {
     number = number.times(multiplier1);
-    document.getElementById('number').innerHTML = "Number: " + notate(number);
-    document.getElementById('multiplier').innerHTML = "(x" + notate3((multiplier1.pow(20))) + "/s)";
+    document.getElementById('number').innerHTML = "Number: " + notate(number) + " (x" + notate3((multiplier1.pow(40))) + "/s)";
 }
 
 multiplier1 = multiplier1.add(1);
 
 // Multiplies the multiplier1 value, which that variable multiplies the main number value.
 function upgrade1() {
-    multiplier1 = MultiplierEffect1.divide(1.445).times(multiplier1.log(2)).add(1.0000001);
-    document.getElementById('number').innerHTML = `Number: ${notate(number)}`;
-    document.getElementById('multiplier').innerHTML = "(x" + notate3((multiplier1.pow(20))) + "/s)";
+    multiplier1 = MultiplierEffect1.divide(1.4425).times(multiplier1.log(2)).add(1.0000001);
+    document.getElementById('number').innerHTML = `Number: ${notate(number)}`  + " (x" + notate3((multiplier1.pow(40))) + "/s)";
 	document.getElementById('IPamount').innerHTML = "You have " + notate(OldIP) + " Infinity Points";
 }
 
@@ -36,19 +35,18 @@ function EarnIP() {
 	IP = IP.times(IPmultiplier);
 	OldIP = IP;
 	MultiplierEffect1 = OldIP.pow(BaseEffect1);
-	multiplier2 = (new Decimal(0.00002).times(MultiplierEffect1));
+	multiplier2 = (new Decimal(0.00003).times(MultiplierEffect1));
 	document.getElementById('IPamount').innerHTML = "You have " + notate(OldIP) + " Infinity Points";
 }
 
 function IncreaseMultiplier1() {
 	if (number.mantissa >= Upgrade1Cost.mantissa && number.exponent >= Upgrade1Cost.exponent) {
-		BaseEffect1 = BaseEffect1.times(1.075);
-		CostEffect1 = CostEffect1.times(1.35);
+		BaseEffect1 = BaseEffect1.times(1.05);
+		CostEffect1 = CostEffect1.times(1.17);
 		Upgrade1Cost = new Decimal(10).pow(Math.floor(CostEffect1));
 		Upgrade1Level = Upgrade1Level.add(1);
-		document.getElementById('number').innerHTML = "Number: " + notate(number);
-		document.getElementById('multiplier').innerHTML = "(x" + notate3((multiplier1.pow(20))) + "/s)";
-		document.getElementById('Upgrade1').innerHTML = "Increase Multiplier per second. <br> Cost: " + notate(Upgrade1Cost) + "<br> Level: " + notate4(Upgrade1Level);
+		document.getElementById('number').innerHTML = "Number: " + notate(number)  + " (x" + notate3((multiplier1.pow(40))) + "/s)";
+		document.getElementById('Upgrade1').innerHTML = "Increase Multiplier per second. <br> Cost: " + notate(Upgrade1Cost) + "<br> Level: " + Upgrade1Level;
 	};
 };
 
@@ -58,8 +56,7 @@ function IncreaseIP1() {
 		CostEffect2 = CostEffect2.times(1.5);
 		Upgrade2Cost = new Decimal(10).pow(Math.floor(CostEffect2));
 		Upgrade2Level = Upgrade2Level.add(1);
-		document.getElementById('number').innerHTML = "Number: " + notate(number);
-		document.getElementById('multiplier').innerHTML = "(x" + notate3((multiplier1.pow(20))) + "/s)";
+		document.getElementById('number').innerHTML = "Number: " + notate(number)  + " (x" + notate3((multiplier1.pow(40))) + "/s)";
 		document.getElementById('Upgrade2').innerHTML = "Increase IP multiplier per tick. <br> Cost: " + notate(Upgrade2Cost) + "<br> Level: " + notate4(Upgrade2Level);
 	};
 };
@@ -83,7 +80,7 @@ function notate2(n) {
 function notate3(n) {
     var m = n.mantissa;
     var e = n.exponent;
-    if (e < 3) return (m * Math.pow(10, e)).toPrecision(4);
+    if (e < 3) return (m * Math.pow(10, e)).toPrecision(3);
     return `${m.toPrecision(3)}e${e.toLocaleString("pt-BR")}`;
 }
 
@@ -97,7 +94,7 @@ function notate4(n) {
 
 var mainGameLoop = window.setInterval(function () {
     multiply()
-}, 50);
+}, 25);
 
 var mainGameLoop = window.setInterval(function () {
     upgrade1()
@@ -126,4 +123,20 @@ function openCity(evt, cityName) {
   // Show the current tab, and add an "active" class to the button that opened the tab
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
+}
+
+// Retrieve your data from locaStorage
+var saveData = JSON.parse(localStorage.saveData || null) || {};
+
+// Store your data.
+function saveStuff(obj) {
+  saveData.obj = obj;
+  // saveData.foo = foo;
+  saveData.time = new Date().getTime();
+  localStorage.saveData = JSON.stringify(saveData);
+}
+
+// Do something with your data.
+function loadStuff() {
+  return saveData.obj || "default";
 }
