@@ -9,7 +9,7 @@ var Upgrade1Cost = new Decimal(1e6);
 var Upgrade1Level = new Decimal(0);
 var BaseEffect1 = new Decimal(0.00125);
 var CostEffect1 = new Decimal(6);
-var IPmultiplier = new Decimal(1.003);
+var IPmultiplier = new Decimal(0.003);
 var Upgrade2Cost = new Decimal(1e1000);
 var Upgrade2Level = new Decimal(1);
 var CostEffect2 = new Decimal(1.5);
@@ -30,6 +30,8 @@ function upgrade1() {
 	document.getElementById('IPamount').innerHTML = "You have " + notate(OldIP) + " Infinity Points";
 }
 
+IPmultiplier = IPmultiplier.add(1);
+
 // Click to earn more Infinity Points.
 function EarnIP() {
 	IP = IP.times(IPmultiplier);
@@ -43,7 +45,7 @@ function IncreaseMultiplier1() {
 	if (number.mantissa >= Upgrade1Cost.mantissa && number.exponent >= Upgrade1Cost.exponent) {
 		BaseEffect1 = BaseEffect1.times(1.05);
 		CostEffect1 = CostEffect1.times(1.17);
-		IPmultiplier = IPmultiplier.times(1.00003);
+		IPmultiplier = IPmultiplier.times(1.01);
 		Upgrade1Cost = new Decimal(10).pow(Math.floor(CostEffect1));
 		Upgrade1Level = Upgrade1Level.add(1);
 		document.getElementById('number').innerHTML = "Number: " + notate(number)  + " (x" + notate3((multiplier1.pow(40))) + "/s)";
