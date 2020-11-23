@@ -27,7 +27,7 @@ multiplier1 = multiplier1.add(1);
 function upgrade1() {
     multiplier1 = MultiplierEffect1.divide(1.4425).times(multiplier1.log(2)).add(1.0000001);
     document.getElementById('number').innerHTML = `Number: ${notate(number)}`  + " (x" + notate3((multiplier1.pow(40))) + "/s)";
-	document.getElementById('IPamount').innerHTML = "You have " + notate(OldIP) + " Infinity Points";
+	document.getElementById('IPamount').innerHTML = "You have " + notate(OldIP) + " Infinity Points (x" + IPmultiplier.pow(2) + "(/s)";
 }
 
 IPmultiplier = IPmultiplier.add(1);
@@ -38,7 +38,7 @@ function EarnIP() {
 	OldIP = IP;
 	MultiplierEffect1 = OldIP.pow(BaseEffect1);
 	multiplier2 = (new Decimal(0.00003).times(MultiplierEffect1));
-	document.getElementById('IPamount').innerHTML = "You have " + notate(OldIP) + " Infinity Points";
+	document.getElementById('IPamount').innerHTML = "You have " + notate(OldIP) + " Infinity Points (x" + IPmultiplier.pow(2) + "(/s)";
 }
 
 function IncreaseMultiplier1() {
@@ -55,7 +55,7 @@ function IncreaseMultiplier1() {
 
 function IncreaseIP1() {
 	if (number.mantissa >= Upgrade1Cost.mantissa && number.exponent >= Upgrade2Cost.exponent) {
-		IPmultiplier = IPmultiplier.times(1.0001);
+		IPmultiplier = IPmultiplier.times(1.01);
 		CostEffect2 = CostEffect2.times(1.5);
 		Upgrade2Cost = Decimal.pow(10, Math.floor(CostEffect2));
 		Upgrade2Level = Upgrade2Level.add(1);
