@@ -10,9 +10,9 @@ var Upgrade1Level = new Decimal(0);
 var BaseEffect1 = new Decimal(0.00125);
 var CostEffect1 = new Decimal(6);
 var IPmultiplier = new Decimal(0.003);
-var Upgrade2Cost = new Decimal(1e1000);
+var Upgrade2Cost = new Decimal(1e50);
 var Upgrade2Level = new Decimal(1);
-var CostEffect2 = new Decimal(1.5);
+var CostEffect2 = new Decimal(50);
 var var1 = new Decimal(1.4);
 
 // Multiplies the number every tick.
