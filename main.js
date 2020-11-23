@@ -57,7 +57,7 @@ function IncreaseIP1() {
 	if (number.mantissa >= Upgrade1Cost.mantissa && number.exponent >= Upgrade2Cost.exponent) {
 		IPmultiplier = IPmultiplier.times(1.0001);
 		CostEffect2 = CostEffect2.times(1.5);
-		Upgrade2Cost = new Decimal(10).pow(Math.floor(CostEffect2));
+		Upgrade2Cost = Decimal.pow(10, Math.floor(CostEffect2));
 		Upgrade2Level = Upgrade2Level.add(1);
 		document.getElementById('number').innerHTML = "Number: " + notate(number)  + " (x" + notate3((multiplier1.pow(40))) + "/s)";
 		document.getElementById('Upgrade2').innerHTML = "Increase IP multiplier per tick. <br> Cost: " + notate(Upgrade2Cost) + "<br> Level: " + notate4(Upgrade2Level);
