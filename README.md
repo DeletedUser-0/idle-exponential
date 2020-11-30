@@ -1,6 +1,6 @@
 # Idle Exponential
 #### How can I play this game?
-##### You can play this game at [the main GitHub page](https://deleteduser-0.github.io/idle-exponential/) or at [the unofficial game page.](https://idle-exponential.tk)
+##### You can play this game at [the main GitHub page](https://deleteduser-0.github.io/idle-exponential/) or at [the unofficial game page.](http://idle-exponential.tk)
 
 
 #### Update is coming soon. When?
