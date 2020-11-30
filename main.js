@@ -60,7 +60,7 @@ function IncreaseIP1() {
 		Upgrade2Cost = Decimal.pow(10, Math.floor(CostEffect2));
 		Upgrade2Level = Upgrade2Level.add(1);
 		document.getElementById('number').innerHTML = "Number: " + notate(number)  + " (x" + notate3((multiplier1.pow(40))) + "/s)";
-		document.getElementById('Upgrade2').innerHTML = "Increase IP multiplier per tick. <br> Cost: " + notate(Upgrade2Cost) + "(Number) <br> Level: " + notate4(Upgrade2Level);
+		document.getElementById('Upgrade2').innerHTML = "Increase IP multiplier per tick. <br> Cost: " + notate(Upgrade2Cost) + " (Number) <br> Level: " + notate4(Upgrade2Level);
 	};
 };
 		
