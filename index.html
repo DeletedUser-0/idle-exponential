@@ -6,24 +6,26 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Idle Exponential</title>
 </head>
-<body style="background-color:black;">
+<body style="background-color:black;" onunload="save()">
 	<div class="tab">
   <button class="tablinks" onclick="openCity(event, 'Number')" id="default">Number</button>
   <button class="tablinks" onclick="openCity(event, 'IP')">Infinity Points</button>
 	</div>
-	<p id="number" class="number">Number: 1.00 (x1.01/s)</b>
+	<p id="number" class="number">Number: 1.000</p>
 	<br>
 	<br>
 	<div id="Number" class="tabcontent">
-	<button onclick="IncreaseMultiplier1()" class="Upgrade" id="Upgrade1">Increase Multiplier per second. <br> Increases IP gain by a fraction. <br> <br> Cost: 1.00e6 <br> Level: 0</button>
+	<button onclick="IncreaseMultiplier1()" class="Upgrade" id="Upgrade1">Increase Multiplier per second. <br> Increases IP gain by a fraction. <br> <br> Cost: 100 <br> Level: 0</button>
 	</div>
 	<div id="IP" class="tabcontent">
 	<b id="IPamount" class="IPamount">You have 2 Infinity Points</b>
 	<br>
 	<br>
-	<button onclick="IncreaseIP1()" class="Upgrade" id="Upgrade2">Increase IP multiplier per tick. <br> Cost: 1.00e50 (number)<br> Level: 0</button>
+	<button onclick="IncreaseIP1()" class="Upgrade" id="Upgrade2">Increase IP multiplier per tick. <br> Cost: 1.00e25 (number)<br> Level: 0</button>
+	<button onclick="Upgrade3()" class="Upgrade" id="Upgrade3">Decrease Tickspeed. <br> Currently: 1000ms. <br> Cost: 100 IP <br> Level: 0</button>
 	</div>
-	<button onclick="save()" class="Upgrade">Save game!</button>
+	<button onclick="saveGame()" class="Upgrade">Save game!</button>
+	<button onclick="loadGame()" class="Upgrade">Load game!</button>
 	<script>
 	document.getElementById("default").click();
 	</script>
